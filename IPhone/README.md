@@ -1,25 +1,35 @@
+```mermaid
 classDiagram
-    class ReprodutorMusical {
+    class IPhone {
         +tocar()
         +pausar()
-        +selecionarMusica(String musica)
-    }
-
-    class AparelhoTelefonico {
-        +ligar(String numero)
+        +selecionarMusica(musica String)
+        +ligar(numero String)
         +atender()
         +iniciarCorreioVoz()
-    }
-
-    class NavegadorInternet {
-        +exibirPagina(String url)
+        +exibirPagina(url String)
         +adicionarNovaAba()
         +atualizarPagina()
     }
 
-    class iPhone{
+    interface AparelhoTelefonico {
+        +ligar(numero String)
+        +atender()
+        +iniciarCorreioVoz()
     }
 
-    iPhone --> ReprodutorMusical
-    iPhone --> AparelhoTelefonico
-    iPhone --> NavegadorInternet
+    interface NavegadorInternet {
+        +exibirPagina(url String)
+        +adicionarNovaAba()
+        +atualizarPagina()
+    }
+
+    interface ReprodutorMusical {
+        +tocar()
+        +pausar()
+        +selecionarMusica(musica String)
+    }
+
+    IPhone ..|> AparelhoTelefonico
+    IPhone ..|> NavegadorInternet
+    IPhone ..|> ReprodutorMusical
